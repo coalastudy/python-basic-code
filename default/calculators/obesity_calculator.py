@@ -18,7 +18,19 @@ weight = int(weight)
 BMI = weight / (height * height / 10000)
 
 # 결과 출력
-print("당신의 BMI 수치는 {0}입니다.".format(BMI))
+# print("당신의 BMI 수치는 {0}입니다.".format(BMI))
+
+# 결과 출력
+if BMI < 18.5:
+    print("저체중이십니다. 살 좀 찌셔야겠어요.")
+elif BMI < 23:
+    print("정상이십니다.")
+elif BMI < 25:
+    print("과체중이십니다. 살을 조금만 빼시면 좋겠어요.")
+elif BMI < 30:
+    print("비만이세요. 꼭 살을 빼세요!")
+else:
+    print("고도비만이십니다. 건강이 위험해요! 꼭 살을 빼세요!")
 
 print('''
 괜찮아요...
