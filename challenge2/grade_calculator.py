@@ -7,13 +7,10 @@ subject_name = list()
 subject_score = list()
 subject_grade = list()
 
-while True:
+while len(subject_name) != number_of_subject:
     subject_name.append(input("과목명을 입력해주세요 : "))
     subject_score.append(input("당신의 점수를 입력해주세요 : "))
     subject_grade.append(input("취득한 학점을 입력해주세요 : "))
-
-    if len(subject_name) == number_of_subject:
-        break
 
 
 calculating_way = input('''

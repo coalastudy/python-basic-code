@@ -4,13 +4,10 @@ print("로또 번호 생성기 프로그램입니다!")
 
 lotto_numbers = list()
 
-while True:
+while len(lotto_numbers) != 7:
     new_number = random.randrange(1, 46)
     if new_number not in lotto_numbers:
-        lotto_numbers.append(random.randrange(1, 46))
-
-    if len(lotto_numbers) == 7:
-        break
+        lotto_numbers.append(new_number)
 
 print('''
 랜덤 로또 발생기 입니다.

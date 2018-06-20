@@ -32,18 +32,11 @@ prices = [10000, 7000, 5000, 8000, 8000, 7000, 5000]
 #            menus[5], prices[5],
 #            menus[6], prices[6], won="원"))
 
-print('''
-메뉴판
-======================
-''', end='')
+print("메뉴판")
+print("======================")
 for index, value in enumerate(menus):
-    if index == len(menus)-1:
-        print("{0:<10}{1:>10}{won}".format(value, prices[index], won='원'), end='')
-    else:
-        print("{0:<10}{1:>10}{won}".format(value, prices[index], won='원'))
-print('''
-======================
-''')
+    print("{0:<10}{1:>10}{won}".format(value, prices[index], won='원'))
+print("======================")
 
 
 choice = random.randrange(0, len(menus))
