@@ -15,19 +15,6 @@ print(answer)
 # 유저에게 입력 받음
 your_answer = input("답을 맞추어 보세요 : ")
 
-print(your_answer)
-
-strike = 0
-ball = 0
-
 # 스트라이크, 볼 검사
 for index, value in enumerate(your_answer):
-    if int(value) == answer[index]:
-        strike += 1
-    elif int(value) in answer:
-        ball += 1
-
-if strike == 0 and ball == 0:
-    print("Out!!!!!!!!!!!")
-else:
-    print(str(strike) + "스트라이크 " + str(ball) + "볼입니다.")
+    print("index : {0}, value : {1}".format(index, value))
