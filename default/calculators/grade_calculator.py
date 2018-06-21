@@ -1,78 +1,85 @@
 print("학점계산기 프로그램입니다!")
 
-subject_name = input("과목명을 입력해주세요 : ")
-subject_score = input("당신의 점수를 입력해주세요 : ")
-subject_grade = input("취득한 학점을 입력해주세요 : ")
+number_of_subject = input("과목 갯수를 입력해주세요 : ")
+number_of_subject = int(number_of_subject)
+
+subject_name = list()
+subject_score = list()
+subject_grade = list()
+
+while len(subject_name) != number_of_subject:
+    subject_name.append(input("과목명을 입력해주세요 : "))
+    subject_score.append(input("당신의 점수를 입력해주세요 : "))
+    subject_grade.append(input("취득한 학점을 입력해주세요 : "))
+
 
 calculating_way = input('''
-학점 계산 방식을 선택해주세요.
-1. 4.5 만점
-2. 4.3 만점
-''')
+    학점 계산 방식을 선택해주세요.
+    1. 4.5 만점
+    2. 4.3 만점
+    ''')
 
 score = 0
+amount_of_grade = 0
 
-if calculating_way == '1':
-    if subject_score == 'A+':
-        score = 4.5
-    elif subject_score == 'A':
-        score = 4.0
-    elif subject_score == 'A-':
-        score = "There is no value"
-    elif subject_score == 'B+':
-        score = 3.5
-    elif subject_score == 'B':
-        score = 3.0
-    elif subject_score == 'B-':
-        score = "There is no value"
-    elif subject_score == 'C+':
-        score = 2.5
-    elif subject_score == 'C':
-        score = 2.0
-    elif subject_score == 'C-':
-        score = "There is no value"
-    elif subject_score == 'F':
-        score = 0
+for index, value in enumerate(subject_score):
+
+    grade = int(subject_grade[index])
+    amount_of_grade += grade
+
+    if calculating_way == '1':
+        if value == 'A+':
+            score += 4.5 * grade
+        elif value == 'A':
+            score += 4.0 * grade
+        elif value == 'A-':
+            amount_of_grade -= grade
+        elif value == 'B+':
+            score += 3.5 * grade
+        elif value == 'B':
+            score += 3.0 * grade
+        elif value == 'B-':
+            amount_of_grade -= grade
+        elif value == 'C+':
+            score += 2.5 * grade
+        elif value == 'C':
+            score += 2.0 * grade
+        elif value == 'C-':
+            amount_of_grade -= grade
+        elif value == 'F':
+            score += 0
+        else:
+            amount_of_grade -= grade
+
+    elif calculating_way == '2':
+        if value == 'A+':
+            score += 4.3 * grade
+        elif value == 'A':
+            score += 4.0 * grade
+        elif value == 'A-':
+            score += 3.7 * grade
+        elif value == 'B+':
+            score += 3.3 * grade
+        elif value == 'B':
+            score += 3.0 * grade
+        elif value == 'B-':
+            score += 2.7 * grade
+        elif value == 'C+':
+            score += 2.3 * grade
+        elif value == 'C':
+            score += 2.0 * grade
+        elif value == 'C-':
+            score += 1.7 * grade
+        elif value == 'F':
+            score += 0
+        else:
+            amount_of_grade -= grade
+
     else:
-        score = "There is no value"
+        print("잘못된 연산 방법 입니다. 프로그램을 종료합니다.")
+        break
 
-    print('''
-과목 이름 : {0}
-당신의 점수 : {1}
-변환한 점수 : {2}
-당신의 취득학점 : {3}
-'''.format(subject_name, subject_score, score, subject_grade))
-
-elif calculating_way == '2':
-    if subject_score == 'A+':
-        score += 4.3
-    elif subject_score == 'A':
-        score += 4.0
-    elif subject_score == 'A-':
-        score += 3.7
-    elif subject_score == 'B+':
-        score += 3.3
-    elif subject_score == 'B':
-        score += 3.0
-    elif subject_score == 'B-':
-        score += 2.7
-    elif subject_score == 'C+':
-        score += 2.3
-    elif subject_score == 'C':
-        score += 2.0
-    elif subject_score == 'C-':
-        score += 1.7
-    elif subject_score == 'F':
-        score += 0
-    else:
-        score = "There is no value"
-
-    print('''
-과목 이름 : {0}
-당신의 점수 : {1}
-변환한 점수 : {2}
-당신의 취득학점 : {3}
-'''.format(subject_name, subject_score, score, subject_grade))
-
-else:
-    print("잘못된 연산 방법 입니다. 프로그램을 종료합니다.")
+print('''
+당신이 이번학기 들었던 총 학점 : {0}
+당신의 GPA : {1}
+'''.format(amount_of_grade, score/amount_of_grade))
