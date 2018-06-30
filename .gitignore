@@ -4,3 +4,4 @@
 .idea/vcs.xml
 .idea/libraries/*
 .idea/misc.xml
+*.pyc
