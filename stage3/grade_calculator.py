@@ -13,6 +13,7 @@ calculating_way = input('''
 score = 0
 
 if calculating_way == '1':
+    # 4.5 만점
     if subject_score == 'A+':
         score = 4.5
     elif subject_score == 'A':
@@ -44,6 +45,7 @@ if calculating_way == '1':
 '''.format(subject_name, subject_score, score, subject_grade))
 
 elif calculating_way == '2':
+    # 4.5 만점
     if subject_score == 'A+':
         score += 4.3
     elif subject_score == 'A':
